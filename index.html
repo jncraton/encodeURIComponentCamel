@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title></title>
+    <style>
+    textarea, input {
+      display:block;
+      width:100%;
+    }
+    </style>
+  </head>
+
+  <body>
+    <textarea></textarea>
+    <textarea id=encoded></textarea>
+    <textarea id=decoded></textarea>
+    <script>
+    function encode(text) {
+      text = text.replace(/([a-z]) ([a-z])(?=[a-z])/g, (match,before,char) => {
+        return before + char.toUpperCase()
+      })
+      return text
+    }
+
+    function decode(text) {
+      // Special hack for "a"
+      //text = text.replace(/([a-z])A([A-Z][a-z])/g, (match, before, after) => {
+      //  return before + " a" + after
+      //})
+      text = text.replace(/([a-z])([A-Z])/g, (match, lower, upper) => {
+        return lower + " " + upper.toLowerCase()
+      })
+
+      return text
+    }
+
+    document.querySelector('textarea').addEventListener('input', (e) => {
+      encoded.value = encode(e.target.value)
+      decoded.value = decode(encoded.value)
+    })
+    </script>
+  </body>
+</html>
