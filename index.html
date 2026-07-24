@@ -15,6 +15,7 @@
 
   <body>
     <textarea></textarea>
+    <textarea id=defaultEncoded></textarea>
     <textarea id=encoded></textarea>
     <textarea id=decoded></textarea>
     <script>
@@ -22,6 +23,10 @@
       text = text.replace(/([a-z]) ([a-z])(?=[a-z])/g, (match,before,char) => {
         return before + char.toUpperCase()
       })
+
+      text = encodeURIComponent(text)
+      text = text.replace(/%20/g, '+')
+      
       return text
     }
 
@@ -30,6 +35,10 @@
       //text = text.replace(/([a-z])A([A-Z][a-z])/g, (match, before, after) => {
       //  return before + " a" + after
       //})
+
+      text = decodeURIComponent(text)
+      text = text.replaceAll('+', ' ')
+      
       text = text.replace(/([a-z])([A-Z])/g, (match, lower, upper) => {
         return lower + " " + upper.toLowerCase()
       })
@@ -38,6 +47,7 @@
     }
 
     document.querySelector('textarea').addEventListener('input', (e) => {
+      defaultEncoded.value = encodeURIComponent(e.target.value)
       encoded.value = encode(e.target.value)
       decoded.value = decode(encoded.value)
     })
