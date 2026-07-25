@@ -20,7 +20,7 @@ function swapCamel(text) {
     if (match[1] == ' ') {
       return match[0] + match[2]
     } else {
-      return match[0] + " " + match[1]
+      return match[0] + ' ' + match[1]
     }
   })
 
