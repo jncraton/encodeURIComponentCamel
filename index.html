@@ -31,11 +31,6 @@
     }
 
     function decode(text) {
-      // Special hack for "a"
-      //text = text.replace(/([a-z])A([A-Z][a-z])/g, (match, before, after) => {
-      //  return before + " a" + after
-      //})
-
       text = decodeURIComponent(text)
       text = text.replaceAll('+', ' ')
       
