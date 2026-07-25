@@ -7,7 +7,7 @@ function swapCamel(text) {
     if (match.match(/[,a-z] [a-z]/)) {
       // Convert to camel
       return match[0] + match[2].toUpperCase()
-    } else if (match[0].match(/[,a-z]/) && match[1].match(/[A-Z]/)) {
+    } else if (match.match(/[,a-z][A-Z]/)) {
       // Convert to spaced
       return match[0] + ' ' + match[1].toLowerCase()
     } else {
