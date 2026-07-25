@@ -47,4 +47,4 @@ function decode(text) {
 }
 
 console.assert(decode(encode(sample)) == sample)
-console.log(sample.length, encode(sample).length)
+console.log(sample.length, encode(sample).length, encode(sample))
