@@ -57,9 +57,14 @@
 
       function encode(text) {
         text = asciify(text)
+
+        // Spaces between words
         text = text.replace(/([a-z]) ([a-z])(?=[a-z])/g, (match, before, char) => {
           return before + char.toUpperCase()
         })
+
+        // Spaces between sentences
+        text = text.replace(/\. (?=[A-Z])/g, ".")
 
         text = encodeURIComponent(text)
         text = text.replace(/%20/g, '+')
@@ -74,6 +79,8 @@
         text = text.replace(/([a-z])([A-Z])/g, (match, lower, upper) => {
           return lower + ' ' + upper.toLowerCase()
         })
+
+        text = text.replace(/\.(?=[A-Z])/g, '. ')
 
         return text
       }
