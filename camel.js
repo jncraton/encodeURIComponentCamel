@@ -33,6 +33,8 @@ assert(swapCamel('camel,case'), 'camel, case')
 assert(swapCamel('Hello. World.'), 'Hello.World.')
 assert(swapCamel('Hello.World.'), 'Hello. World.')
 assert(swapCamel('camel CASE'), 'camel CASE')
+assert(swapCamel('McCoy'), 'Mc coy')
+assert(swapCamel('Mc coy'), 'McCoy')
 assert(swapCamel(swapCamel(sample)), sample)
 
 function encode(text) {
