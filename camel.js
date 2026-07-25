@@ -1,5 +1,5 @@
 const sample =
-  'HTML elements are the building blocks of HTML pages. With HTML constructs, images and other objects such as interactive forms may be embedded into the rendered page. HTML provides a means to create structured documents by denoting structural semantics for text such as headings, paragraphs, lists, links, quotes, and other items.'
+  'HTML elements are the building blocks of HTML pages. With HTML constructs, images and other objects such as interactive forms may be embedded into the rendered page. HTML provides a means to create structured documents by denoting structural semantics for text such as headings, paragraphs, lists, links, quotes, and other items.\n\nDeCSS is one of the first free computer programs capable of decrypting commercially produced DVD-Video discs. Before the release of DeCSS, free and open source operating systems (such as BSD and Linux) could not play encrypted video DVDs.'
 
 function swapCamel(text) {
   // Swaps space separated words to camel case and vice versa
