@@ -67,7 +67,7 @@
     <script>
       function swapCamel(text) {
         // Swaps space separated words to camel case and vice versa
-        text = text.replace(/([a-z])( [a-z]|[A-Z])(?=[a-z])/g, (match, before, char) => {
+        text = text.replace(/([,a-z])( [a-z]|[A-Z])(?=[a-z])/g, (match, before, char) => {
           if (char[0] == ' ') {
             // Convert to camel
             return before + char[1].toUpperCase()
