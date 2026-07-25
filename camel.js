@@ -3,13 +3,13 @@ const sample =
 
 function swapCamel(text) {
   // Swaps space separated words to camel case and vice versa
-  text = text.replace(/[,a-zA-Z] ?[a-zA-Z](?=[a-z])/g, (match) => {
+  text = text.replace(/[,a-zA-Z] ?[a-zA-Z](?=[a-z])/g, match => {
     if (match.match(/[,a-z] [a-z]/)) {
       // Convert to camel
       return match[0] + match[2].toUpperCase()
     } else if (match[0].match(/[,a-z]/) && match[1].match(/[A-Z]/)) {
-        // Convert to spaced
-        return match[0] + ' ' + match[1].toLowerCase()
+      // Convert to spaced
+      return match[0] + ' ' + match[1].toLowerCase()
     } else {
       return match
     }
