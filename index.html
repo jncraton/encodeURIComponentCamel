@@ -31,8 +31,8 @@
     }
 
     function decode(text) {
-      text = decodeURIComponent(text)
       text = text.replaceAll('+', ' ')
+      text = decodeURIComponent(text)
       
       text = text.replace(/([a-z])([A-Z])/g, (match, lower, upper) => {
         return lower + " " + upper.toLowerCase()
