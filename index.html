@@ -77,9 +77,6 @@
         // Commas
         text = text.replace(/\, (?=[a-z])/g, '.')
 
-        // Convert double quotes
-        text = text.replace(/\"/g, "'")
-
         text = encodeURIComponent(text)
         text = text.replace(/%20/g, '+')
 
