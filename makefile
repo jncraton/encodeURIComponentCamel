@@ -1,4 +1,4 @@
 all:
 
 format:
-	npx prettier --write *.html
+	npx prettier --write *.html *.js
