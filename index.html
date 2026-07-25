@@ -66,28 +66,28 @@
     </div>
     <script src="camel.js"></script>
     <script>
-    function update() {
-      const val = input.value
-      const def = encodeURIComponent(val)
-      const enc = encode(val)
-      const dec = decode(enc)
-    
-      defaultEncoded.value = def
-      encoded.value = enc
-      decoded.value = dec
-    
-      inputCount.textContent = val.length + ' chars'
-      defaultEncodedCount.textContent = def.length + ' chars'
-      encodedCount.textContent = enc.length + ' chars'
-      decodedCount.textContent = dec.length + ' chars'
-    }
-    
-    input.addEventListener('input', update)
-    encoded.addEventListener('input', e => {
-      decoded.value = decode(encoded.value)
-      encodedCount.textContent = encoded.value.length + ' chars'
-      decodedCount.textContent = decoded.value.length + ' chars'
-    })
+      function update() {
+        const val = input.value
+        const def = encodeURIComponent(val)
+        const enc = encode(val)
+        const dec = decode(enc)
+
+        defaultEncoded.value = def
+        encoded.value = enc
+        decoded.value = dec
+
+        inputCount.textContent = val.length + ' chars'
+        defaultEncodedCount.textContent = def.length + ' chars'
+        encodedCount.textContent = enc.length + ' chars'
+        decodedCount.textContent = dec.length + ' chars'
+      }
+
+      input.addEventListener('input', update)
+      encoded.addEventListener('input', e => {
+        decoded.value = decode(encoded.value)
+        encodedCount.textContent = encoded.value.length + ' chars'
+        decodedCount.textContent = decoded.value.length + ' chars'
+      })
     </script>
   </body>
 </html>

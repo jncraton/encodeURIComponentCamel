@@ -13,11 +13,11 @@ function swapCamel(text) {
   return text
 }
 
-console.assert(swapCamel("camelCase") == "camel case")
-console.assert(swapCamel("camel case") == "camelCase")
-console.assert(swapCamel("camel, case") == "camel,Case")
-console.assert(swapCamel("camel,Case") == "camel, case")
-console.assert(swapCamel("camel CASE") == "camel CASE")
+console.assert(swapCamel('camelCase') == 'camel case')
+console.assert(swapCamel('camel case') == 'camelCase')
+console.assert(swapCamel('camel, case') == 'camel,Case')
+console.assert(swapCamel('camel,Case') == 'camel, case')
+console.assert(swapCamel('camel CASE') == 'camel CASE')
 
 function encode(text) {
   text = swapCamel(text)
