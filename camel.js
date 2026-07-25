@@ -46,7 +46,7 @@ function decode(text) {
   return text
 }
 
-const rand = 'b*4PzNvM%[&P&O-4c!mmEHQS3$QWokhhQ013P.7}|!CMNs1;ugD=#GBI^,cOWCoV'
+const rand = 'b*4PzNvM%[&P&O-4c!m mEHQS3$QWokhhQ013P.7}|!CMN s1;ugD=#GBI^,cOWCoV'
 console.assert(decode(encode(rand)) == rand)
 console.assert(decode(encode(sample)) == sample)
 console.log(sample.length, encode(sample).length, encode(sample))
