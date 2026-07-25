@@ -99,9 +99,7 @@
         text = text.replaceAll('+', ' ')
         text = decodeURIComponent(text)
 
-        text = text.replace(/([a-z])([A-Z])/g, (match, lower, upper) => {
-          return lower + ' ' + upper.toLowerCase()
-        })
+        text = swapCamel(text)
 
         text = text.replace(/\.(?=[A-Z])/g, '. ')
         text = text.replace(/\.(?=[a-z])/g, ', ')
