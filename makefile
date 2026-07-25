@@ -1,4 +1,4 @@
-all:
+all: test
 
 lint:
 	npx --yes prettier@3.6.2 --check .
