@@ -18,14 +18,16 @@ function swapCamel(text) {
   return text
 }
 
-console.assert(swapCamel('camelCase') == 'camel case', swapCamel('camelCase'))
-console.assert(swapCamel('camel case') == 'camelCase')
+const assert = (a, b) => console.assert(a == b, `${a} != ${b}`)
+
+assert(swapCamel('camelCase'), 'camel case')
+assert(swapCamel('camel case'), 'camelCase')
 //console.assert(swapCamel('HTML is') == 'HTMLis')
 //console.assert(swapCamel('HTMLis') == 'HTML is')
-console.assert(swapCamel('camel, case') == 'camel,Case')
-console.assert(swapCamel('camel,Case') == 'camel, case')
-console.assert(swapCamel('camel CASE') == 'camel CASE')
-console.assert(swapCamel(swapCamel(sample)) == sample, swapCamel(swapCamel(sample)))
+assert(swapCamel('camel, case'), 'camel,case')
+assert(swapCamel('camel,case'), 'camel, case')
+assert(swapCamel('camel CASE'), 'camel CASE')
+assert(swapCamel(swapCamel(sample)), sample)
 
 function encode(text) {
   text = swapCamel(text)
@@ -47,6 +49,6 @@ function decode(text) {
 }
 
 const rand = 'b*4PzNvM%[&P&O-4c!m mEHQS3$QWokhhQ013P.7}|!CMN s1;ugD=#GBI^,cOWCoV'
-console.assert(decode(encode(rand)) == rand)
-console.assert(decode(encode(sample)) == sample)
+assert(decode(encode(rand)), rand)
+assert(decode(encode(sample)), sample)
 console.log(sample.length, encode(sample).length, encode(sample))
