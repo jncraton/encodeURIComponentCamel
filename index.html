@@ -4,21 +4,66 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title></title>
+    <title>encodeURIComponentCamel</title>
     <style>
-      textarea,
-      input {
+      body {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        font-family: sans-serif;
+        line-height: 1.5;
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .field {
+        margin-bottom: 1rem;
+      }
+      label {
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+      }
+      textarea {
         display: block;
         width: 100%;
+        height: 100px;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        font-family: inherit;
+        font-size: 1rem;
+        resize: vertical;
+      }
+      .count {
+        font-weight: normal;
+        color: #666;
       }
     </style>
   </head>
 
   <body>
-    <textarea></textarea>
-    <textarea id="defaultEncoded"></textarea>
-    <textarea id="encoded"></textarea>
-    <textarea id="decoded"></textarea>
+    <h1>Encode URI Component Camel</h1>
+    <div class="field">
+      <label for="input">Input Text <span class="count" id="inputCount">0 chars</span></label>
+      <textarea id="input"></textarea>
+    </div>
+    <div class="field">
+      <label for="defaultEncoded"
+        >Default encodeURIComponent <span class="count" id="defaultEncodedCount">0 chars</span></label
+      >
+      <textarea id="defaultEncoded" readonly></textarea>
+    </div>
+    <div class="field">
+      <label for="encoded">Custom Encoded <span class="count" id="encodedCount">0 chars</span></label>
+      <textarea id="encoded"></textarea>
+    </div>
+    <div class="field">
+      <label for="decoded">Decoded <span class="count" id="decodedCount">0 chars</span></label>
+      <textarea id="decoded" readonly></textarea>
+    </div>
     <script>
       function asciify(input) {
         if (input == null) return ''
@@ -64,10 +109,10 @@
         })
 
         // Spaces between sentences
-        text = text.replace(/\. (?=[A-Z])/g, ".")
+        text = text.replace(/\. (?=[A-Z])/g, '.')
 
         // Commas
-        text = text.replace(/\, (?=[a-z])/g, ".")
+        text = text.replace(/\, (?=[a-z])/g, '.')
 
         // Convert double quotes
         text = text.replace(/\"/g, "'")
@@ -92,10 +137,27 @@
         return text
       }
 
-      document.querySelector('textarea').addEventListener('input', e => {
-        defaultEncoded.value = encodeURIComponent(e.target.value)
-        encoded.value = encode(e.target.value)
+      function update() {
+        const val = input.value
+        const def = encodeURIComponent(val)
+        const enc = encode(val)
+        const dec = decode(enc)
+
+        defaultEncoded.value = def
+        encoded.value = enc
+        decoded.value = dec
+
+        inputCount.textContent = val.length + ' chars'
+        defaultEncodedCount.textContent = def.length + ' chars'
+        encodedCount.textContent = enc.length + ' chars'
+        decodedCount.textContent = dec.length + ' chars'
+      }
+
+      input.addEventListener('input', update)
+      encoded.addEventListener('input', e => {
         decoded.value = decode(encoded.value)
+        encodedCount.textContent = encoded.value.length + ' chars'
+        decodedCount.textContent = decoded.value.length + ' chars'
       })
     </script>
   </body>
