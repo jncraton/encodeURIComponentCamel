@@ -18,12 +18,14 @@ function swapCamel(text) {
   return text
 }
 
-console.assert(swapCamel('camelCase') == 'camel case')
+console.assert(swapCamel('camelCase') == 'camel case', swapCamel('camelCase'))
 console.assert(swapCamel('camel case') == 'camelCase')
+//console.assert(swapCamel('HTML is') == 'HTMLis')
+//console.assert(swapCamel('HTMLis') == 'HTML is')
 console.assert(swapCamel('camel, case') == 'camel,Case')
 console.assert(swapCamel('camel,Case') == 'camel, case')
 console.assert(swapCamel('camel CASE') == 'camel CASE')
-console.assert(swapCamel(swapCamel(sample)) == sample)
+console.assert(swapCamel(swapCamel(sample)) == sample, swapCamel(swapCamel(sample)))
 
 function encode(text) {
   text = swapCamel(text)
