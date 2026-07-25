@@ -66,6 +66,9 @@
         // Spaces between sentences
         text = text.replace(/\. (?=[A-Z])/g, ".")
 
+        // Commas
+        text = text.replace(/\, (?=[a-z])/g, ".")
+
         text = encodeURIComponent(text)
         text = text.replace(/%20/g, '+')
 
@@ -81,6 +84,7 @@
         })
 
         text = text.replace(/\.(?=[A-Z])/g, '. ')
+        text = text.replace(/\.(?=[a-z])/g, ', ')
 
         return text
       }
