@@ -15,7 +15,7 @@ function swapCamel(text) {
       return match[0] + match[2]
     } else if (match.match(/[,\.][A-Za-z]/)) {
       // Add space after punc
-      return match[0] + " " + match[1]
+      return match[0] + ' ' + match[1]
     } else {
       return match
     }
