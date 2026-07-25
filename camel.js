@@ -10,14 +10,17 @@ function swapCamel(text) {
     } else if (match.match(/[a-z][A-Z]/)) {
       // Camel to spaced
       return match[0] + ' ' + match[1].toLowerCase()
-    } else if (match.match(/[,\.] [A-Za-z]/)) {
-      // Remove space after punc
-      return match[0] + match[2]
-    } else if (match.match(/[,\.][A-Za-z]/)) {
-      // Add space after punc
-      return match[0] + ' ' + match[1]
     } else {
       return match
+    }
+  })
+
+  // Swaps spaces after punctuation
+  text = text.replace(/[,/.] ?[a-zA-Z]/g, match => {
+    if (match[1] == ' ') {
+      return match[0] + match[2]
+    } else {
+      return match[0] + " " + match[1]
     }
   })
 
