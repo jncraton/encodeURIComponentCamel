@@ -22,8 +22,6 @@ const assert = (a, b) => console.assert(a == b, `${a} != ${b}`)
 
 assert(swapCamel('camelCase'), 'camel case')
 assert(swapCamel('camel case'), 'camelCase')
-//console.assert(swapCamel('HTML is') == 'HTMLis')
-//console.assert(swapCamel('HTMLis') == 'HTML is')
 assert(swapCamel('camel, case'), 'camel,case')
 assert(swapCamel('camel,case'), 'camel, case')
 assert(swapCamel('camel CASE'), 'camel CASE')
