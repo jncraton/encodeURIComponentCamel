@@ -69,8 +69,8 @@
       function update() {
         const val = input.value
         const def = encodeURIComponent(val)
-        const enc = encode(val)
-        const dec = decode(enc)
+        const enc = encodeURIComponentCamel(val)
+        const dec = decodeURIComponentCamel(enc)
 
         defaultEncoded.value = def
         encoded.value = enc
@@ -84,7 +84,7 @@
 
       input.addEventListener('input', update)
       encoded.addEventListener('input', e => {
-        decoded.value = decode(encoded.value)
+        decoded.value = decodeURIComponentCamel(encoded.value)
         encodedCount.textContent = encoded.value.length + ' chars'
         decodedCount.textContent = decoded.value.length + ' chars'
       })
