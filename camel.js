@@ -34,7 +34,7 @@ function encodeURIComponentCamel(text) {
   return text
 }
 
-function decodeCamel(text) {
+function decodeURIComponentCamel(text) {
   text = text.replaceAll('+', ' ')
   text = decodeURIComponent(text)
 
