@@ -15,6 +15,6 @@ assert(swapCamel('Mc coy'), 'McCoy')
 assert(swapCamel(swapCamel(sample)), sample)
 
 const rand = 'b*4PzNvM%[&P&O-4c!m mEHQS3$QWokhhQ013P.7}|!CMN s1;ugD=#GBI^,cOWCoV'
-assert(decode(encode(rand)), rand)
-assert(decode(encode(sample)), sample)
-console.log(sample.length, encodeURIComponent(sample).length, encode(sample).length, encode(sample))
+assert(decodeCamel(encodeCamel(rand)), rand)
+assert(decodeCamel(encodeCamel(sample)), sample)
+console.log(sample.length, encodeURIComponent(sample).length, encodeCamel(sample).length, encodeCamel(sample))

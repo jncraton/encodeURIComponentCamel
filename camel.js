@@ -24,7 +24,7 @@ function swapCamel(text) {
   return text
 }
 
-function encode(text) {
+function encodeCamel(text) {
   text = swapCamel(text)
 
   text = encodeURIComponent(text)
@@ -34,7 +34,7 @@ function encode(text) {
   return text
 }
 
-function decode(text) {
+function decodeCamel(text) {
   text = text.replaceAll('+', ' ')
   text = decodeURIComponent(text)
 
