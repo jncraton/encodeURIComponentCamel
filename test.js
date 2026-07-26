@@ -17,4 +17,9 @@ assert(swapCamel(swapCamel(sample)), sample)
 const rand = 'b*4PzNvM%[&P&O-4c!m mEHQS3$QWokhhQ013P.7}|!CMN s1;ugD=#GBI^,cOWCoV'
 assert(decodeURIComponentCamel(encodeURIComponentCamel(rand)), rand)
 assert(decodeURIComponentCamel(encodeURIComponentCamel(sample)), sample)
-console.log(sample.length, encodeURIComponent(sample).length, encodeURIComponentCamel(sample).length, encodeURIComponentCamel(sample))
+console.log(
+  sample.length,
+  encodeURIComponent(sample).length,
+  encodeURIComponentCamel(sample).length,
+  encodeURIComponentCamel(sample),
+)
