@@ -9,4 +9,4 @@ format:
 	uvx black@24.1.0 .
 
 test:
-	node camel.js
+	cat camel.js test.js | node
