@@ -24,7 +24,7 @@ function swapCamel(text) {
   return text
 }
 
-function encodeCamel(text) {
+function encodeURIComponentCamel(text) {
   text = swapCamel(text)
 
   text = encodeURIComponent(text)
