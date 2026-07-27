@@ -13,7 +13,7 @@ function swapCamel(text) {
   })
 
   // Swaps spaces after punctuation
-  text = text.replace(/[,/.] ?[a-zA-Z]/g, match => {
+  text = text.replace(/[,\.] ?[a-zA-Z]/g, match => {
     if (match[1] == ' ') {
       return match[0] + match[2]
     } else {
