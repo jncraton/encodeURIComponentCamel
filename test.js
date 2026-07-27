@@ -61,6 +61,14 @@ function recase(text) {
   text = text.replace(/([\.\!\?] |^)[A-Za-z](?=[a-z])/gm, match => {
     return match.slice(0, -1) + swapCharCase(match.slice(-1))
   })
+  
+  text = text.replace(/[A-Z0-9][A-Z0-9]+|\+[a-z][a-z]+/g, match => {
+    if (match[0] == "+") {
+      return match.slice(1).toUpperCase()
+    } else {
+      return "+" + match.toLowerCase()
+    }
+  })
   return text
 }
 
@@ -84,7 +92,8 @@ async function testDeflate() {
   console.log('camel deflate', deflateCamel.length)
   console.log('recased deflate', deflateRecase.length)
   console.log('')
-  console.log(swapCamel(sample))
+  //console.log(swapCamel(sample))
+  console.log(recase(sample))
 }
 
 testDeflate()
