@@ -64,7 +64,7 @@ async function testDeflate() {
   console.log('lowercased deflate', deflateLower.length)
   console.log('camel deflate', deflateCamel.length)
   console.log('')
-  console.log(encodeURIComponentCamel(sample))
+  console.log(swapCamel(sample))
 }
 
 testDeflate()
