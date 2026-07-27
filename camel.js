@@ -1,10 +1,10 @@
 function swapCamel(text) {
   // Swaps space separated words to camel case and vice versa
-  text = text.replace(/[,\.a-zA-Z] ?[a-zA-Z](?=[a-z])/g, match => {
-    if (match.match(/[a-z] [a-z]/)) {
+  text = text.replace(/[,\)a-zA-Z] ?[a-zA-Z](?=[a-z])/g, match => {
+    if (match.match(/[\,\)a-z] [a-z]/)) {
       // Spaced to camel
       return match[0] + match[2].toUpperCase()
-    } else if (match.match(/[a-z][A-Z]/)) {
+    } else if (match.match(/[\,\)a-z][A-Z]/)) {
       // Camel to spaced
       return match[0] + ' ' + match[1].toLowerCase()
     } else {
@@ -13,7 +13,7 @@ function swapCamel(text) {
   })
 
   // Swaps spaces after punctuation
-  text = text.replace(/[,\.] ?[a-zA-Z]/g, match => {
+  text = text.replace(/[\.] ?[a-zA-Z]/g, match => {
     if (match[1] == ' ') {
       return match[0] + match[2]
     } else {
