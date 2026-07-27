@@ -61,7 +61,7 @@ function recase(text) {
   text = text.replace(/([\.\!\?] |^)[A-Za-z](?=[a-z ])/gm, match => {
     return match.slice(0, -1) + swapCharCase(match.slice(-1))
   })
-  
+
   return text
 }
 
