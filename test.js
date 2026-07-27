@@ -44,16 +44,18 @@ async function decodeDeflate(text) {
 
 async function testDeflate() {
   const deflate = await encodeDeflate(sample)
+  const deflateLower = await encodeDeflate(sample.toLowerCase())
   const roundtripDeflate = await decodeDeflate(deflate)
 
   assert(roundtripDeflate, sample)
 
   console.log(
-    sample.length,
-    encodeURIComponent(sample).length,
-    encodeURIComponentCamel(sample).length,
-    deflate.length,
-    encodeURIComponentCamel(sample),
+    "original:", sample.length,
+    "\nencodeURIComponent:", encodeURIComponent(sample).length,
+    "\nencodeURIComponentCamel:", encodeURIComponentCamel(sample).length,
+    "\ndeflate:", deflate.length,
+    "\nlowercased deflate", deflateLower.length,
+    "\n\n", encodeURIComponentCamel(sample),
   )
 }
 
