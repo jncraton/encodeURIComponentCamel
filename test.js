@@ -50,12 +50,18 @@ async function testDeflate() {
   assert(roundtripDeflate, sample)
 
   console.log(
-    "original:", sample.length,
-    "\nencodeURIComponent:", encodeURIComponent(sample).length,
-    "\nencodeURIComponentCamel:", encodeURIComponentCamel(sample).length,
-    "\ndeflate:", deflate.length,
-    "\nlowercased deflate", deflateLower.length,
-    "\n\n", encodeURIComponentCamel(sample),
+    'original:',
+    sample.length,
+    '\nencodeURIComponent:',
+    encodeURIComponent(sample).length,
+    '\nencodeURIComponentCamel:',
+    encodeURIComponentCamel(sample).length,
+    '\ndeflate:',
+    deflate.length,
+    '\nlowercased deflate',
+    deflateLower.length,
+    '\n\n',
+    encodeURIComponentCamel(sample),
   )
 }
 
