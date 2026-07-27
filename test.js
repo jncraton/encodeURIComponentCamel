@@ -62,13 +62,6 @@ function recase(text) {
     return match.slice(0, -1) + swapCharCase(match.slice(-1))
   })
   
-  text = text.replace(/[A-Z0-9][A-Z0-9]+|\+[a-z][a-z]+/g, match => {
-    if (match[0] == "+") {
-      return match.slice(1).toUpperCase()
-    } else {
-      return "+" + match.toLowerCase()
-    }
-  })
   return text
 }
 
