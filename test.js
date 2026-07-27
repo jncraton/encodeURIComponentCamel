@@ -49,10 +49,15 @@ async function decodeDeflate(text) {
   return await blob.text()
 }
 
+function recase(text) {
+  return text
+}
+
 async function testDeflate() {
   const deflate = await encodeDeflate(sample)
   const deflateLower = await encodeDeflate(sample.toLowerCase())
   const deflateCamel = await encodeDeflate(swapCamel(sample))
+  const deflateRecase = await encodeDeflate(recase(sample))
   const roundtripDeflate = await decodeDeflate(deflate)
 
   assert(roundtripDeflate, sample)
@@ -63,6 +68,7 @@ async function testDeflate() {
   console.log('deflate:', deflate.length)
   console.log('lowercased deflate', deflateLower.length)
   console.log('camel deflate', deflateCamel.length)
+  console.log('recased deflate', deflateRecase.length)
   console.log('')
   console.log(swapCamel(sample))
 }
