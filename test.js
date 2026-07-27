@@ -85,8 +85,7 @@ async function testDeflate() {
   console.log('camel deflate', deflateCamel.length)
   console.log('recased deflate', deflateRecase.length)
   console.log('')
-  //console.log(swapCamel(sample))
-  console.log(recase(sample))
+  console.log(swapCamel(sample))
 }
 
 testDeflate()
