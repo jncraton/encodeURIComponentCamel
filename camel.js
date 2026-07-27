@@ -21,6 +21,15 @@ function swapCamel(text) {
     }
   })
 
+  // Swaps spaces before punctuation
+  text = text.replace(/ ?[\(\<]/g, match => {
+    if (match[0] == ' ') {
+      return match[1]
+    } else {
+      return " " + match[0]
+    }
+  })
+
   return text
 }
 
