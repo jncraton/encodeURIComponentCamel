@@ -50,8 +50,17 @@ async function decodeDeflate(text) {
 }
 
 function recase(text) {
+  text = text.replace(/[\.\!\?] [A-Z]|[\.\!\?][a-z]/g, match => {
+    if (match[1] == " ") {
+      return match[0] + match[2].toLowerCase()
+    } else {
+      return match[0] + " " + match[1].toUpperCase()
+    }
+  })
   return text
 }
+
+assert(recase(recase(sample)), sample)
 
 async function testDeflate() {
   const deflate = await encodeDeflate(sample)
