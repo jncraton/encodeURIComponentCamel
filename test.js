@@ -49,18 +49,23 @@ async function decodeDeflate(text) {
   return await blob.text()
 }
 
+function swapCharCase(char) {
+  if (char.toUpperCase() == char) {
+    return char.toLowerCase()
+  } else {
+    return char.toUpperCase()
+  }
+}
+
 function recase(text) {
-  text = text.replace(/[\.\!\?] [A-Z]|[\.\!\?][a-z]/g, match => {
-    if (match[1] == " ") {
-      return match[0] + match[2].toLowerCase()
-    } else {
-      return match[0] + " " + match[1].toUpperCase()
-    }
+  text = text.replace(/([\.\!\?] |^)[A-Za-z](?=[a-z])/gm, match => {
+    return match.slice(0, -1) + swapCharCase(match.slice(-1))
   })
   return text
 }
 
 assert(recase(recase(sample)), sample)
+assert(recase(recase(rand)), rand)
 
 async function testDeflate() {
   const deflate = await encodeDeflate(sample)
