@@ -45,6 +45,7 @@ async function decodeDeflate(text) {
 async function testDeflate() {
   const deflate = await encodeDeflate(sample)
   const deflateLower = await encodeDeflate(sample.toLowerCase())
+  const deflateCamel = await encodeDeflate(swapCamel(sample))
   const roundtripDeflate = await decodeDeflate(deflate)
 
   assert(roundtripDeflate, sample)
@@ -54,6 +55,7 @@ async function testDeflate() {
   console.log('encodeURIComponentCamel:', encodeURIComponentCamel(sample).length)
   console.log('deflate:', deflate.length)
   console.log('lowercased deflate', deflateLower.length)
+  console.log('camel deflate', deflateCamel.length)
   console.log('')
   console.log(encodeURIComponentCamel(sample))
 }
